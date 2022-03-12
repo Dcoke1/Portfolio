@@ -1,4 +1,4 @@
-@import "./components/Blog/_css.scss"; 
+@import "./components/Nav/_css.scss";
 @import "./components/Projects/_css.scss";
 @import "./components/Home/_css.scss";
-@import "./components/Navbar/_css.scss";
+@import "./components/Footer/_css.scss";

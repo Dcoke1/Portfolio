@@ -1,13 +1,35 @@
 body {
+  background: rgba(211, 217, 214, 0.23715423669467783);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Heebo",
+    "Cooper-hewitt", "Denk One", "Gothic A1", "Gotu", "Goudy Bookletter 1911",
+    "Gemunu Libre", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+span,
+p,
+button,
+h5,
+h6 {
+  font-family: "Gothic A1" !important;
+}
+h2,
+b {
+  font-family: "Gemunu Libre" !important;
+}
+
+button > a {
+  text-decoration: none;
+}
+
+#home > section {
+  padding: 0 2rem;
 }
