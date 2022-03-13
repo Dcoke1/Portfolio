@@ -13,7 +13,7 @@ const currentTab = () => {
 
 export const NavBar = (props: any) => {
   /* Tab buttons functionality */
-  const [value, setValue] = React.useState(currentTab);
+  const [value, setValue] = React.useState(currentTab || 0);
   const matches = useMediaQuery("(max-width:450px)");
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
