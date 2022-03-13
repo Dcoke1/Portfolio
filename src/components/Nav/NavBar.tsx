@@ -7,7 +7,7 @@ import { LinkedIn } from "@mui/icons-material";
 let path = window.location.pathname;
 
 const currentTab = () => {
-  if (path === "/react_portfolio") return 0;
+  if (path === "/react_portfolio" || "/react_portfolio/") return 0;
   else if (path === "/projects") return 1;
 };
 
