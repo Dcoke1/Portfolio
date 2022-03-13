@@ -11,7 +11,7 @@ import {
 } from "@mui/material/";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
-import { section_, section_shdw } from "./Assets/section_style";
+import { section_ } from "./Assets/section_style";
 import rover from "./Assets/rover.png";
 const nasa_key = process.env.REACT_APP_NASA_API_KEY;
 
@@ -139,12 +139,12 @@ const MarsList = ({ data, view }: MarsListProps) => {
     <ImageList
       sx={{
         width: "100%",
-        height: 350,
+        height: 400,
         gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr)) !important",
         gridColumnGap: "6px",
         gridRowGap: "6px",
       }}
-      rowHeight={300}
+      rowHeight={400}
     >
       {data.map((item: any) => (
         <ImageListItem key={item.id}>
@@ -181,15 +181,18 @@ const MarsContainer = ({
   btns,
   list,
 }: MarsContainerProps) => {
-
+  
   const matches = useMediaQuery("(max-width:798px)");
 
   return (
     <Box
       component="section"
       style={{
-        background: "white",
-        ...section_shdw,
+        background: "rgb(41, 60, 72, .95)",
+        margin: "2% 2% 0",
+        borderRadius: "2% 2% 0 0",
+        color: `white`,
+        boxShadow: "1px 3px 5px rgba(0,0,0,.05)",
       }}
     >
       <Stack
@@ -215,7 +218,9 @@ const MarsContainer = ({
           alt="mars_rover"
         />
         <Stack
-          style={{ alignItems: "center" }}
+          style={{
+            alignItems: "center",
+          }}
           direction={`${matches ? "column" : "row"}`}
         >
           <Typography
@@ -234,7 +239,12 @@ const MarsContainer = ({
             variant="h6"
           >{`${length} photos available`}</Typography>
         </Stack>
-        <Typography variant="subtitle1">{subtitle}</Typography>
+        <Typography
+          variant="subtitle1"
+          sx={{ fontSize: matches ? ".8rem" : undefined }}
+        >
+          {subtitle}
+        </Typography>
         {btns}
         {list}
       </Stack>

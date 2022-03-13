@@ -1,18 +1,20 @@
 import * as React from "react";
-import { AppBar, Tabs, Tab } from "@mui/material/";
+import { AppBar, Tabs, Tab, useMediaQuery } from "@mui/material/";
 import { Link } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { LinkedIn } from "@mui/icons-material";
 
+let path = window.location.pathname;
+
 const currentTab = () => {
-  let path = window.location.pathname;
-  if (path === "/") return 0;
+  if (path === "/react_portfolio") return 0;
   else if (path === "/projects") return 1;
 };
 
 export const NavBar = (props: any) => {
   /* Tab buttons functionality */
   const [value, setValue] = React.useState(currentTab);
+  const matches = useMediaQuery("(max-width:450px)");
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -21,20 +23,32 @@ export const NavBar = (props: any) => {
   React.useEffect(() => {}, [value]);
 
   return (
-    <AppBar position="absolute" color="transparent" sx={{ boxShadow: "none" }}>
+    <AppBar
+      position="absolute"
+      color="transparent"
+      sx={{
+        boxShadow: "none",
+        paddingTop: value === 1 ? "1%" : "3.5%",
+      }}
+    >
       <Tabs
         component={"nav"}
         value={value}
         onChange={handleChange}
         textColor="inherit"
+        color="rgb(255, 255, 255)"
         aria-label="home projects"
         TabIndicatorProps={{ style: { background: "#D3935B" } }}
+        sx={{
+          color: "rgb(255, 255, 255)",
+          fontSize: matches ? "12px" : undefined,
+        }}
         centered
       >
         <Tab
           label={"Douglas Coke"}
           component={Link}
-          to="/"
+          to="/react_portfolio"
           sx={{ fontSize: "larger" }}
         />
         <Tab

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { section_, section_height, section_shdw } from "./Assets/section_style";
+import { section_, section_height } from "./Assets/section_style";
 import mars from "./Assets/mars.png";
 import asteroid from "./Assets/asteroid.png";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -19,10 +19,9 @@ export const Asteroid = () => {
 
   let space_color = [
     "transparent",
-    "burlywood",
-    "#2F3236",
-    "#6b1a05",
-    "#293C48",
+    "rgb(222, 184, 135, .75)",
+    "rgb(47, 50, 54, .75)",
+    "rgb(41, 60, 72, .75)",
   ];
 
   const skills = [
@@ -57,7 +56,6 @@ export const Asteroid = () => {
     <Box
       component="section"
       style={{
-        ...section_shdw,
         position: "relative",
         backgroundImage: `url(${asteroid})`,
         backgroundAttachment: "fixed",
@@ -67,7 +65,7 @@ export const Asteroid = () => {
       }}
     >
       <Stack sx={{ ...section_, ...section_height, color: "white" }} direction="row">
-        <aside style={{marginRight: "1rem"}}>
+        <aside style={{ marginRight: matches ? "0rem" : "1rem" }}>
           <Typography
             variant="h2"
             style={{

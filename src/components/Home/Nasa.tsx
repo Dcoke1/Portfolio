@@ -1,5 +1,4 @@
 import * as React from "react";
-import { section_height } from "./Assets/section_style";
 import {
   Paper,
   Card,
@@ -67,8 +66,8 @@ const DisplayCard = ({ url, type, explanation }: DisplayCardProps) => {
     <Card
       component="article"
       sx={{
-        padding: "1.5rem",
-        boxShadow: "5px 5px 20px -15px #000000",
+        padding: matches ? "1rem" : "1.5rem",
+        borderRadius: "1.5%",
       }}
     >
       {type === "video" ? (
@@ -91,6 +90,7 @@ const DisplayCard = ({ url, type, explanation }: DisplayCardProps) => {
             marginBottom: matches ? "1rem" : undefined,
             height: matches ? "300px" : "350px",
             width: matches ? "100%" : "400px",
+            borderRadius: "2%",
           }}
         />
       )}
@@ -127,12 +127,18 @@ const DisplayContainer = ({
     <Paper
       component="section"
       id="nasa"
-      elevation={1}
+      elevation={0}
       sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: matches ? "auto" : section_height,
+        background: "rgb(41, 60, 72, .95)",
+        color: "white",
+        height: matches ? "auto" : "110vh",
+        padding: matches ? "0rem !important" : undefined,
+        margin: "2%",
+        borderRadius: "2%",
+        boxShadow: "0 3px 4px rgba(0,0,0,.05)",
       }}
     >
       <Stack
@@ -146,6 +152,7 @@ const DisplayContainer = ({
         <TextField
           label="Search Article Dates"
           type="date"
+          color="warning"
           defaultValue={currentTime}
           onChange={(e) => setCalender(e.target.value)}
           sx={{ width: 220, margin: "1rem auto" }}

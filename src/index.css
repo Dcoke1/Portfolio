@@ -1,5 +1,6 @@
 body {
-  background: rgba(211, 217, 214, 0.23715423669467783);
+  background: rgba(211, 217, 214, 0.2);
+  transition: all 0.5s ease;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Heebo",
@@ -29,7 +30,12 @@ b {
 button > a {
   text-decoration: none;
 }
-
-#home > section {
+section {
   padding: 0 2rem;
+}
+
+@media only screen and (max-width: 797px) {
+  #home > section {
+    padding: 0 1rem;
+  }
 }

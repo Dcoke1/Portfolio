@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Typography, useMediaQuery } from "@mui/material";
-import logo from "./logo.svg";
 
 export const Footer = () => {
 
@@ -12,12 +11,11 @@ export const Footer = () => {
       style={{
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-evenly",
+        justifyContent: "space-around",
         alignItems: "center",
         padding: "0 2rem",
-        background: "rgba(211,217,214,0.23715423669467783)",
+        background: "rgba(211, 217, 214, 0.2)",
         height: "10vh",
-        borderTop: ".5px solid grey",
       }}
     >
       <span
@@ -28,10 +26,10 @@ export const Footer = () => {
           justifyContent: "center",
         }}
       >
-        {`Created with React`}
-        <img src={logo} className="App-logo" alt="logo" />
+        {`Created with React 2022`}
+        </span>
         <span>
-          {`2022 Powered by `}
+          {`Powered by `}
           <a
             className="nasa_link"
             href="https://api.nasa.gov/"
@@ -39,7 +37,6 @@ export const Footer = () => {
             rel="noopener noreferrer"
           >{`${"Nasa Api"}`}</a>
         </span>
-      </span>
       <a
         href="https://www.linkedin.com/in/douglascoke/"
         target="_blank"

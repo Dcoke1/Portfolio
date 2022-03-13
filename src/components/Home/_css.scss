@@ -1,5 +1,12 @@
-@media only screen and (max-width: 797px) {
-  #home > section {
-    padding: 0 1rem;
-  }
+
+/*Calender border & label style*/
+#mui-1 {
+  color: white;
+  cursor: pointer;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-color: rgba(217, 137, 65, 0.8393951330532212) !important
+}
+.css-qvxuup-MuiFormLabel-root-MuiInputLabel-root {
+  color: #ED6C03 !important;
 }

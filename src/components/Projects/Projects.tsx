@@ -1,6 +1,6 @@
 import * as React from "react";
 import space from "./space1.gif";
-import { section_height, section_shdw } from "../Home/Assets/section_style";
+import { section_height } from "../Home/Assets/section_style";
 
 export const Projects = (props: any) => {
   return (
@@ -15,7 +15,6 @@ export const Projects = (props: any) => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         ...section_height,
-        ...section_shdw,
       }}
     >
       <h1 style={{color: "white"}}>Projects</h1>

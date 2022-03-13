@@ -1,5 +1,5 @@
 import * as React from "react";
-import { section_, section_height, section_shdw } from "./Assets/section_style";
+import { section_ } from "./Assets/section_style";
 import {
   Stack,
   Button,
@@ -38,10 +38,11 @@ export const Search = () => {
       component="section"
       sx={{
         ...section_,
-        ...section_height,
-        ...section_shdw,
+        height: "120vh",
         maxWidth: "100%",
+        background: "rgba(211, 217, 214, 0.4)",
         justifyContent: "center",
+        borderRadius: "1.5%",
       }}
     >
       <Typography
