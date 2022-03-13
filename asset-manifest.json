@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react_portfolio/static/css/main.ee2bf09c.css",
-    "main.js": "/react_portfolio/static/js/main.8b1973ea.js",
+    "main.css": "/react_portfolio/static/css/main.92dc6182.css",
+    "main.js": "/react_portfolio/static/js/main.c1c46385.js",
     "static/media/space1.gif": "/react_portfolio/static/media/space1.5c2b4fe12ddb5239efa8.gif",
     "static/media/asteroid.png": "/react_portfolio/static/media/asteroid.99ac9a46d52f911647af.png",
     "static/media/gothic-a1-all-400-normal.woff": "/react_portfolio/static/media/gothic-a1-all-400-normal.824566326f38aa42c017.woff",
@@ -116,11 +116,11 @@
     "static/media/heebo-hebrew-400-normal.woff2": "/react_portfolio/static/media/heebo-hebrew-400-normal.f81f0032c9caf58f35b5.woff2",
     "static/media/gothic-a1-65-400-normal.woff2": "/react_portfolio/static/media/gothic-a1-65-400-normal.808868d933be6e597ae3.woff2",
     "index.html": "/react_portfolio/index.html",
-    "main.ee2bf09c.css.map": "/react_portfolio/static/css/main.ee2bf09c.css.map",
-    "main.8b1973ea.js.map": "/react_portfolio/static/js/main.8b1973ea.js.map"
+    "main.92dc6182.css.map": "/react_portfolio/static/css/main.92dc6182.css.map",
+    "main.c1c46385.js.map": "/react_portfolio/static/js/main.c1c46385.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee2bf09c.css",
-    "static/js/main.8b1973ea.js"
+    "static/css/main.92dc6182.css",
+    "static/js/main.c1c46385.js"
   ]
 }
