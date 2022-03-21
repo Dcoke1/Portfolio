@@ -4,7 +4,7 @@ import {
   ImageListItem,
   Stack,
   Button,
-  Box,
+  Paper,
   Typography,
   IconButton,
   useMediaQuery,
@@ -13,23 +13,24 @@ import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import { section_ } from "./Assets/section_style";
 import rover from "./Assets/rover.png";
+import Zoom from 'react-reveal/Zoom';
 const nasa_key = process.env.REACT_APP_NASA_API_KEY;
 
 type MarsButtonProps = {
-  setInput: Function;
   cameras: Array<object>;
+  setInput: Function;
 };
 
 type MarsListProps = {
-  data: any;
+  data: Array<unknown>;
   view: string;
 };
 
 type MarsContainerProps = {
   title: string;
   subtitle: string;
-  length: number;
   date: string;
+  length: number;
   decrement: JSX.Element;
   increment: JSX.Element;
   btns: JSX.Element;
@@ -111,7 +112,10 @@ const MarsButton = ({ setInput, cameras }: MarsButtonProps) => {
   };
 
   return (
-    <Stack style={{ flexWrap: "wrap", gap: "5px" }} direction="row">
+    <Stack
+      style={{ flexWrap: "wrap", gap: "5px", maxWidth: "1400px" }}
+      direction="row"
+    >
       {cameras.map((item: any, key: number) => {
         return (
           <Button
@@ -139,12 +143,12 @@ const MarsList = ({ data, view }: MarsListProps) => {
     <ImageList
       sx={{
         width: "100%",
-        height: 400,
+        height: 300,
         gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr)) !important",
         gridColumnGap: "6px",
         gridRowGap: "6px",
       }}
-      rowHeight={400}
+      rowHeight={300}
     >
       {data.map((item: any) => (
         <ImageListItem key={item.id}>
@@ -161,7 +165,7 @@ const MarsList = ({ data, view }: MarsListProps) => {
     <Stack
       style={{
         margin: "1rem",
-        height: "400px",
+        height: "300px",
         justifyContent: "center",
         color: "red",
       }}
@@ -181,50 +185,64 @@ const MarsContainer = ({
   btns,
   list,
 }: MarsContainerProps) => {
-  
-  const matches = useMediaQuery("(max-width:798px)");
+  const med = useMediaQuery("(max-width:798px)");
 
   return (
-    <Box
+    <Paper
       component="section"
       style={{
-        background: "rgb(41, 60, 72, .95)",
-        margin: "2% 2% 0",
-        borderRadius: "2% 2% 0 0",
-        color: `white`,
-        boxShadow: "1px 3px 5px rgba(0,0,0,.05)",
+        margin: med ? "0" : "5%",
+        padding: med ? "1.5rem" : "1.5rem 6rem",
+        borderRadius: "1rem",
+        position: "relative",
+        backgroundColor: "rgb(255, 255, 255, .1)",
       }}
+      elevation={1}
     >
       <Stack
         sx={{
           ...section_,
           padding: "7.5vh auto 0",
+          maxWidth: "1200px",
         }}
         direction="column"
       >
         <Typography
-          variant="h2"
+          variant="h3"
+          className="darkthemeSection"
           style={{
-            marginTop: "10vh",
-            marginBottom: "0.5em",
+            display: "flex",
+            flexDirection: med ? "column" : "row",
+            alignItems: "center",
+            fontSize: "2.5rem",
+            marginTop: "5vh",
+            marginBottom: med ? "0" :  "0.5em",
             textAlign: "center",
           }}
         >
           {title}
+          <img
+              style={{ width: "4rem", marginLeft: "5px" }}
+              src="https://api.nasa.gov/assets/footer/img/favicon-192.png"
+              alt="nasa_logo"
+            />
         </Typography>
+        <Zoom>
         <img
-          style={{ display: matches ? "none" : undefined }}
+          style={{ maxWidth: "300px", display: med ? "none" : undefined }}
           src={rover}
           alt="mars_rover"
         />
+        </Zoom>
         <Stack
           style={{
             alignItems: "center",
           }}
-          direction={`${matches ? "column" : "row"}`}
+          direction={`${med ? "column" : "row"}`}
         >
           <Typography
             variant="h6"
+            className="darkthemeSection"
             style={{ margin: ".5rem auto", fontWeight: "bolder" }}
           >{`Earth Day ${date}`}</Typography>
           <Stack direction="column">
@@ -232,22 +250,24 @@ const MarsContainer = ({
               {decrement}
               {increment}
             </Stack>
-            <i style={{ marginLeft: ".5rem", color: "red" }}>Select Day</i>
+            <i style={{ marginLeft: ".5rem", color: "red" }}>Select Date</i>
           </Stack>
           <Typography
-            style={{ fontWeight: "bolder" }}
             variant="h6"
+            className="darkthemeSection"
+            style={{ fontWeight: "bolder" }}
           >{`${length} photos available`}</Typography>
         </Stack>
         <Typography
           variant="subtitle1"
-          sx={{ fontSize: matches ? ".8rem" : undefined }}
+          className="darkthemeSection"
+          sx={{ fontSize: med ? ".8rem" : undefined }}
         >
           {subtitle}
         </Typography>
         {btns}
         {list}
       </Stack>
-    </Box>
+    </Paper>
   );
 };

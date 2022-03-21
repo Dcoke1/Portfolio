@@ -1,167 +1,204 @@
 import * as React from "react";
-import {
-  Paper,
-  Card,
-  CardMedia,
-  Typography,
-  Stack,
-  TextField,
-  useMediaQuery,
-} from "@mui/material/";
+import BasicDatePicker from "./Calender";
+import { Card, CardMedia, Typography, useMediaQuery } from "@mui/material/";
 const nasa_key = process.env.REACT_APP_NASA_API_KEY;
 
 type DisplayCardProps = {
   url: string;
   type: string;
+  title: string;
   explanation: string;
 };
 
-type DisplayInfoProps = {
-  title: string;
-  copyright: string;
+type DisplayCalenderProps = {
+  setCalender: Function;
+  currentTime: string;
 };
 
 type DisplayContainerProps = {
-  displayInfo: JSX.Element;
+  header: string;
+  subHeader: string;
   displayCard: JSX.Element;
-  currentTime: string;
-  setCalender: Function;
+  displayCalender: JSX.Element;
 };
 
 export const Nasa = () => {
   const [data, setData] = React.useState(Object);
-  const [day, setDay] = React.useState(String);
-
-  let clock = new Date().toLocaleDateString("en-CA");
+  const [date, setDay] = React.useState(new Date().toLocaleDateString());
 
   React.useEffect(() => {
-    let url = `https://api.nasa.gov/planetary/apod?api_key=${nasa_key}&date=${day}&`;
+    let url = `https://api.nasa.gov/planetary/apod?api_key=${nasa_key}&date=${new Date(
+      date
+    ).toLocaleDateString("en-CA")}&`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.log(err));
-  }, [day]);
+  }, [date]);
 
   return (
     <DisplayContainer
-      displayInfo={
-        <DisplayInfo title={data.title} copyright={data.copyright} />
+      header={"Search Articles"}
+      subHeader={
+        "NASA astronomy articles, pictures and videos for more than 25 years.... "
       }
       displayCard={
         <DisplayCard
           url={data.hdurl ? data.hdurl : data.url}
           type={data.media_type}
+          title={data.title}
           explanation={data.explanation}
         />
       }
-      setCalender={setDay}
-      currentTime={`${clock}`}
+      displayCalender={
+        <DisplayCalender currentTime={date} setCalender={setDay} />
+      }
     />
   );
 };
 
-const DisplayCard = ({ url, type, explanation }: DisplayCardProps) => {
-  const matches = useMediaQuery("(max-width:798px)");
+const DisplayContainer = ({
+  header,
+  subHeader,
+  displayCalender,
+  displayCard,
+}: DisplayContainerProps) => {
+  const med = useMediaQuery("(max-width:798px)");
+  const sm = useMediaQuery("(max-width:450px)");
+  return (
+    <section
+      id="nasa_section"
+      style={{
+        height: "auto",
+        alignItems: "center",
+        background: `linear-gradient(195deg, rgb(47, 50, 54, .97), rgb(25, 25, 25))`,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1400px",
+          margin: "0 auto",
+          padding: sm ? "6rem 0rem 0rem" : med ? "6rem 2rem" : "6rem",
+        }}
+      >
+        <div
+          style={{
+            color: "white",
+            textAlign: "left",
+            padding: sm ? "0 2rem" : undefined,
+          }}
+        >
+          <Typography variant="h3" className="darkthemeSection" style={{ 
+            display: "flex", alignItems: "center", fontSize: "2.5rem" }}>
+            {header}
+            <img
+              style={{ width: sm ? "0" : med ? "2.5rem" : "3.5rem" }}
+              src="https://api.nasa.gov/assets/footer/img/favicon-192.png"
+              alt="nasa_logo"
+            />
+          </Typography>
+          <Typography variant="subtitle1" style={{ fontStyle: "italic" }}>
+            {subHeader}
+          </Typography>
+        </div>
+        {displayCalender}
+        {displayCard}
+      </div>
+    </section>
+  );
+};
+
+const DisplayCard = ({ url, type, title, explanation }: DisplayCardProps) => {
+  const med = useMediaQuery("(max-width:798px)");
+  const sm = useMediaQuery("(max-width:450px)");
   return (
     <Card
       component="article"
+      className="darkthemebackground"
       sx={{
-        padding: matches ? "1rem" : "1.5rem",
-        borderRadius: "1.5%",
+        padding: med ? "3rem 1rem" : "1.5rem 1.5rem 2.5rem",
+        borderRadius: sm ? "0" : "1.5%",
+        maxWidth: "798px",
+        margin: "0 auto",
       }}
     >
-      {type === "video" ? (
-        <iframe
-          width="375"
-          height="300"
-          title="nasa_video"
-          style={{ marginBottom: "1rem" }}
-          src={url}
-        ></iframe>
-      ) : (
-        <CardMedia
-          component="img"
-          className="nasa_img"
-          image={url}
-          alt={type}
-          style={{
-            float: "left",
-            marginRight: "1rem",
-            marginBottom: matches ? "1rem" : undefined,
-            height: matches ? "300px" : "350px",
-            width: matches ? "100%" : "400px",
-            borderRadius: "2%",
-          }}
-        />
-      )}
       <Typography
-        variant="body1"
-        color="text.secondary"
-        style={{ textAlign: "justify" }}
+        variant="h4"
+        className="darkthemeSection"
+        style={{
+          textAlign: "center",
+          marginBottom: "1rem",
+        }}
       >
-        {explanation}
+        {title}
       </Typography>
+      <div>
+        {type === "video" ? (
+          <iframe
+            width="auto"
+            height="300"
+            title="nasa_video"
+            loading="lazy"
+            style={{
+              width: med ? "100%" : undefined,
+              borderRadius: "2%",
+              marginRight: "1rem",
+              marginBottom: med ? "0.5rem" : undefined,
+              float: "left",
+            }}
+            src={url}
+          ></iframe>
+        ) : (
+          <CardMedia
+            component="img"
+            className="nasa_img"
+            image={url}
+            alt={type}
+            loading="lazy"
+            style={{
+              marginRight: "1rem",
+              marginBottom: med ? "1rem" : undefined,
+              height: med ? "350px" : "300px",
+              width: med ? "100%" : "350px",
+              borderRadius: "2%",
+              float: "left",
+              position: "relative",
+              zIndex: "1",
+              opacity: "1",
+              background: "transparent",
+              color: "rgb(52, 71, 103)",
+              boxShadow: "none",
+            }}
+          />
+        )}
+        <Typography
+          variant="body1"
+          className="darkthemeSection"
+          style={{
+            textAlign: "justify",
+            width: "100%",
+          }}
+        >
+          {explanation}
+        </Typography>
+      </div>
     </Card>
   );
 };
 
-const DisplayInfo = ({ title, copyright }: DisplayInfoProps) => {
-  return (
-    <div>
-      <Typography variant="h2">{title}</Typography>
-      <Typography variant="h5">
-        <b>{copyright}</b>
-      </Typography>
-    </div>
-  );
-};
-
-const DisplayContainer = ({
-  displayInfo,
-  displayCard,
+const DisplayCalender = ({
   setCalender,
   currentTime,
-}: DisplayContainerProps) => {
-  const matches = useMediaQuery("(max-width:798px)");
+}: DisplayCalenderProps) => {
+
   return (
-    <Paper
-      component="section"
-      id="nasa"
-      elevation={0}
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "rgb(41, 60, 72, .95)",
-        color: "white",
-        height: matches ? "auto" : "110vh",
-        padding: matches ? "0rem !important" : undefined,
-        margin: "2%",
-        borderRadius: "2%",
-        boxShadow: "0 3px 4px rgba(0,0,0,.05)",
+    <div
+      style={{
+        textAlign: "center",
+        padding: "2rem 0 1rem",
       }}
     >
-      <Stack
-        style={{
-          margin: matches ? "10vh 0" : undefined,
-          maxWidth: "1200px",
-          textAlign: "center",
-        }}
-      >
-        {displayInfo}
-        <TextField
-          label="Search Article Dates"
-          type="date"
-          color="warning"
-          defaultValue={currentTime}
-          onChange={(e) => setCalender(e.target.value)}
-          sx={{ width: 220, margin: "1rem auto" }}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        {displayCard}
-      </Stack>
-    </Paper>
+      <BasicDatePicker dateVal={currentTime} setVal={setCalender} />
+    </div>
   );
 };

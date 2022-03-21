@@ -1,49 +1,53 @@
 import * as React from "react";
-import { Typography, useMediaQuery } from "@mui/material";
+import { Typography, Stack, useMediaQuery } from "@mui/material";
 
 export const Footer = () => {
 
-  const matches = useMediaQuery("(max-width:798px)");
-
   return (
-    <Typography
-      component={"footer"}
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-around",
-        alignItems: "center",
-        padding: "0 2rem",
-        background: "rgba(211, 217, 214, 0.2)",
-        height: "10vh",
-      }}
-    >
-      <span
+    <Stack direction={"column"}>
+      <Typography
+        component={"footer"}
         style={{
-          display: matches ? "none" : "flex",
+          display: "flex",
           flexDirection: "row",
+          justifyContent: "space-around",
           alignItems: "center",
-          justifyContent: "center",
+          padding: "0 2rem",
+          height: "20vh",
+          fontFamily: "gemunu libre",
         }}
       >
-        {`Created with React 2022`}
-        </span>
-        <span>
-          {`Powered by `}
+        <Stack style={{ alignItems: "center" }} direction="row">
           <a
             className="nasa_link"
             href="https://api.nasa.gov/"
             target="_blank"
             rel="noopener noreferrer"
-          >{`${"Nasa Api"}`}</a>
-        </span>
-      <a
-        href="https://www.linkedin.com/in/douglascoke/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Contact Me
-      </a>
-    </Typography>
+            style={{
+              display: "inline-flex",
+              fontFamily: "gemunu libre",
+              color: "red",
+              marginLeft: "5px",
+              alignItems: "center",
+            }}
+          >
+            <img
+              style={{ width: "3.5rem" }}
+              src="https://api.nasa.gov/assets/footer/img/favicon-192.png"
+              alt="nasa_logo"
+            />
+            Nasa Api
+          </a>
+        </Stack>
+        <a
+          href="https://www.linkedin.com/in/douglascoke/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontFamily: "gemunu libre" }}
+        >
+          Contact Me
+        </a>
+      </Typography>
+    </Stack>
   );
 };

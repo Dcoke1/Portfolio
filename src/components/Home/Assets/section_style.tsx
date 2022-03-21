@@ -1,6 +1,5 @@
 export const section_ = {
   position: "relative",
-  maxWidth: "1200px",
   display: "flex",
   alignItems: "center",
   m: "0 auto",

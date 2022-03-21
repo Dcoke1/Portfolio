@@ -1,31 +1,99 @@
 import * as React from "react";
-import { section_img, styles } from "./Assets/section_style";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { styles } from "./Assets/section_style";
 import { Nasa } from "./Nasa";
+import { Skills } from "./Skills";
 import { Mars } from "./Mars";
-import { Search } from "./Search";
-import { Asteroid } from "./Asteroid";
-import image from "./Assets/img1.jpeg";
+import { About } from "./About";
+import { Footer } from "../Footer/Footer";
+import image from "./Assets/spacexxxx.jpeg";
+import Pulse from "react-reveal/Pulse";
 import {
   createTheme,
   responsiveFontSizes,
   ThemeProvider,
 } from "@mui/material/styles";
-import { Stack, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  Paper,
+  IconButton,
+  useMediaQuery,
+} from "@mui/material";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-export const Home = (props: any) => {
+type ContainerProps = {
+  sections: Array<JSX.Element>;
+};
+
+export const Home = () => {
+  const elements = [<About />, <Nasa />, <Skills />, <Mars />];
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <Hero />
-        <Asteroid />
-        <Nasa />
-        <Search />
-        <Mars />
+        <Container sections={elements} />
+        <Footer />
       </ThemeProvider>
     </>
+  );
+};
+
+const Container = ({ sections }: ContainerProps) => {
+  const [num, setNum] = React.useState(0);
+  const med = useMediaQuery("(max-width:798px)");
+
+  let section_colors = ["rgb(255, 255, 255, .99)", "rgb(47, 50, 54, .98)"];
+
+  React.useEffect(() => {}, [num]);
+
+  const increment = () => {
+    num === section_colors.length - 1 ? setNum(0) : setNum(num + 1);
+  };
+
+  const Toggle = () => {
+    return (
+      <IconButton
+        style={{ position: "absolute", top: ".5rem", right: ".5rem" }}
+        size="small"
+        onClick={() => increment()}
+      >
+        <LightModeIcon />
+        {med ? undefined : "Toggle"}
+      </IconButton>
+    );
+  };
+
+  return (
+    <Paper
+      style={{
+        color: "rgba(0, 0, 0, 0.87)",
+        transition: "all 0.5s ease",
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+        minWidth: "0px",
+        overflowWrap: "break-word",
+        backgroundColor: `${section_colors[num]}`,
+        border: "0px solid rgba(0, 0, 0, 0.125)",
+        borderRadius: "1rem",
+        overflow: "visible",
+        margin: "-64px 1.5rem 0 32px",
+        boxShadow: "rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem",
+      }}
+      elevation={5}
+    >
+      <Toggle />
+      {sections.map((section: JSX.Element, key: number) => (
+        <section key={key} id={num === 0 ? "lightmode" : "darkmode"}>
+          {section}
+        </section>
+      ))}
+    </Paper>
   );
 };
 
@@ -33,23 +101,26 @@ const Hero = () => {
   const matches = useMediaQuery("(max-width:798px)");
 
   return (
-    <Stack
+    <Box
       style={{
+        display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundImage: `url(${image})`,
-        ...section_img,
-        height: matches ? "110vh" : "135vh",
-        backgroundPosition: matches ? "66%" : "center",
-        margin: "2% 2% 1%",
-        borderRadius: "2%",
-        boxShadow: "0 30px 40px rgba(0,0,0,.1)",
+        background: `linear-gradient(195deg, 
+                          rgba(66, 66, 74, 0.5), 
+                          rgba(25, 25, 25, 0.8)), 
+                          url(${image}) transparent`,
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+        minHeight: "75vh",
+        width: "100%",
+        opacity: "1",
+        color: "rgb(52, 71, 103)",
+        boxShadow: "none",
       }}
     >
-      <Stack
-        style={{ ...styles.text, marginBottom: matches ? "10vh" : "35vh" }}
-        direction={matches ? "column" : "row"}
-      >
+      <Stack style={{ ...styles.text }} direction={matches ? "column" : "row"}>
         <Stack
           style={{ textAlign: matches ? "center" : undefined }}
           direction="column"
@@ -71,18 +142,20 @@ const Hero = () => {
             Front-End Web Developer
           </Typography>
         </Stack>
-        <Typography
-          variant="h2"
-          style={{
-            textShadow:
-              "0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00",
-              marginTop: matches ? "1.5vh" : undefined, 
-          }}
-          fontWeight="400"
-        >
-          Mars Portfolio
-        </Typography>
+        <Pulse>
+          <Typography
+            variant="h2"
+            style={{
+              textShadow:
+                "0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00",
+              marginTop: matches ? "1.5vh" : undefined,
+            }}
+            fontWeight="400"
+          >
+            Mars Portfolio
+          </Typography>
+        </Pulse>
       </Stack>
-    </Stack>
+    </Box>
   );
 };

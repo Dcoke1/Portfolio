@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { LinkedIn } from "@mui/icons-material";
 
-let path = window.location.pathname;
-
 const currentTab = () => {
-  if (path === "/react_portfolio" || "/react_portfolio/") return 0;
-  else if (path === "/projects") return 1;
+  let path = window.location.pathname;
+  if (path === "/" || "#/") return 0;
+  else if (path === "/projects" || "#/projects") return 1;
 };
 
 export const NavBar = (props: any) => {
   /* Tab buttons functionality */
-  const [value, setValue] = React.useState(currentTab || 0);
+  const [value, setValue] = React.useState(currentTab);
   const matches = useMediaQuery("(max-width:450px)");
+
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -28,7 +28,7 @@ export const NavBar = (props: any) => {
       color="transparent"
       sx={{
         boxShadow: "none",
-        paddingTop: value === 1 ? "1%" : "3.5%",
+        paddingTop: "1%",
       }}
     >
       <Tabs
@@ -41,14 +41,14 @@ export const NavBar = (props: any) => {
         TabIndicatorProps={{ style: { background: "#D3935B" } }}
         sx={{
           color: "rgb(255, 255, 255)",
-          fontSize: matches ? "12px" : undefined,
+          fontSize: matches ? "12px" : "12px",
         }}
         centered
       >
         <Tab
           label={"Douglas Coke"}
           component={Link}
-          to="/react_portfolio"
+          to="/"
           sx={{ fontSize: "larger" }}
         />
         <Tab

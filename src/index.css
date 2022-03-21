@@ -1,5 +1,5 @@
 body {
-  background: rgba(211, 217, 214, 0.2);
+  background-color: rgb(240, 242, 245);
   transition: all 0.5s ease;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -26,16 +26,20 @@ h2,
 b {
   font-family: "Gemunu Libre" !important;
 }
-
 button > a {
   text-decoration: none;
-}
-section {
-  padding: 0 2rem;
 }
 
 @media only screen and (max-width: 797px) {
   #home > section {
     padding: 0 1rem;
   }
+}
+
+img{
+  transform: scale(1);
+  transition: all .03s;
+}
+ :hover imgß {
+  transform: scale(1.1)
 }
