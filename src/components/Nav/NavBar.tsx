@@ -12,7 +12,7 @@ const currentTab = () => {
 
 export const NavBar = (props: any) => {
   /* Tab buttons functionality */
-  const [value, setValue] = React.useState(currentTab);
+  const [value, setValue] = React.useState(Number);
   const matches = useMediaQuery("(max-width:450px)");
 
 
@@ -33,12 +33,12 @@ export const NavBar = (props: any) => {
     >
       <Tabs
         component={"nav"}
-        value={value}
+        value={null}
         onChange={handleChange}
         textColor="inherit"
         color="rgb(255, 255, 255)"
         aria-label="home projects"
-        TabIndicatorProps={{ style: { background: "#D3935B" } }}
+        TabIndicatorProps={{ style: { display: "none", background: "#D3935B" } }}
         sx={{
           color: "rgb(255, 255, 255)",
           fontSize: matches ? "12px" : "12px",
