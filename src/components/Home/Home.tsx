@@ -46,6 +46,7 @@ export const Home = () => {
 const Container = ({ sections }: ContainerProps) => {
   const [num, setNum] = React.useState(0);
   const med = useMediaQuery("(max-width:798px)");
+  const sm = useMediaQuery("(max-width:450px)");
 
   let section_colors = ["rgb(255, 255, 255, .99)", "rgb(47, 50, 54, .98)"];
 
@@ -98,7 +99,8 @@ const Container = ({ sections }: ContainerProps) => {
 };
 
 const Hero = () => {
-  const matches = useMediaQuery("(max-width:798px)");
+  const med = useMediaQuery("(max-width:798px)");
+  const sm = useMediaQuery("(max-width:450px)");
 
   return (
     <Box
@@ -113,6 +115,7 @@ const Hero = () => {
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
+        backgroundPosition: sm ? "center" : undefined,
         minHeight: "75vh",
         width: "100%",
         opacity: "1",
@@ -120,9 +123,9 @@ const Hero = () => {
         boxShadow: "none",
       }}
     >
-      <Stack style={{ ...styles.text }} direction={matches ? "column" : "row"}>
+      <Stack style={{ ...styles.text }} direction={med ? "column" : "row"}>
         <Stack
-          style={{ textAlign: matches ? "center" : undefined }}
+          style={{ textAlign: med ? "center" : undefined }}
           direction="column"
         >
           <Typography variant="h1" fontFamily={"Gothic A1"}>
@@ -148,7 +151,7 @@ const Hero = () => {
             style={{
               textShadow:
                 "0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00",
-              marginTop: matches ? "1.5vh" : undefined,
+              marginTop: med ? "1.5vh" : undefined,
             }}
             fontWeight="400"
           >

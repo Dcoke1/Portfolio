@@ -186,6 +186,7 @@ const MarsContainer = ({
   list,
 }: MarsContainerProps) => {
   const med = useMediaQuery("(max-width:798px)");
+  const sm = useMediaQuery("(max-width:450px)");
 
   return (
     <Paper
@@ -214,7 +215,7 @@ const MarsContainer = ({
             display: "flex",
             flexDirection: med ? "column" : "row",
             alignItems: "center",
-            fontSize: "2.5rem",
+            fontSize: sm ? "2rem" : "2.5rem",
             marginTop: "5vh",
             marginBottom: med ? "0" :  "0.5em",
             textAlign: "center",

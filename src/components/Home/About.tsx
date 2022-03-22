@@ -6,6 +6,7 @@ import Zoom from 'react-reveal/Zoom';
 
 export const About = () => {
   const med = useMediaQuery("(max-width:798px)");
+  const sm = useMediaQuery("(max-width:450px)");
 
   const array = [
     {

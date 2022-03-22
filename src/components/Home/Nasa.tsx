@@ -88,11 +88,18 @@ const DisplayContainer = ({
             padding: sm ? "0 2rem" : undefined,
           }}
         >
-          <Typography variant="h3" className="darkthemeSection" style={{ 
-            display: "flex", alignItems: "center", fontSize: "2.5rem" }}>
+          <Typography
+            variant="h3"
+            className="darkthemeSection"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              fontSize: sm ? "2rem" : "2.5rem",
+            }}
+          >
             {header}
             <img
-              style={{ width: sm ? "0" : med ? "2.5rem" : "3.5rem" }}
+              style={{ width: med ? "2.5rem" : "3.5rem" }}
               src="https://api.nasa.gov/assets/footer/img/favicon-192.png"
               alt="nasa_logo"
             />
@@ -190,7 +197,6 @@ const DisplayCalender = ({
   setCalender,
   currentTime,
 }: DisplayCalenderProps) => {
-
   return (
     <div
       style={{
