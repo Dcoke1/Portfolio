@@ -1,6 +1,6 @@
 import * as React from "react";
 import BasicDatePicker from "./Calender";
-import { Card, CardMedia, Typography, useMediaQuery } from "@mui/material/";
+import { Card, CardMedia, Typography, Stack, useMediaQuery } from "@mui/material/";
 const nasa_key = process.env.REACT_APP_NASA_API_KEY;
 
 type DisplayCardProps = {
@@ -88,22 +88,24 @@ const DisplayContainer = ({
             padding: sm ? "0 2rem" : undefined,
           }}
         >
+          <Stack style={{alignItems: "center"}} direction="row">
           <Typography
             variant="h3"
             className="darkthemeSection"
             style={{
               display: "flex",
               alignItems: "center",
-              fontSize: sm ? "2rem" : "2.5rem",
+              fontSize: sm ? "1.875rem" : "2.5rem",
             }}
           >
             {header}
-            <img
+          </Typography>
+          <img
               style={{ width: med ? "2.5rem" : "3.5rem" }}
               src="https://api.nasa.gov/assets/footer/img/favicon-192.png"
               alt="nasa_logo"
             />
-          </Typography>
+            </Stack>
           <Typography variant="subtitle1" style={{ fontStyle: "italic" }}>
             {subHeader}
           </Typography>
