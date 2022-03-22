@@ -115,7 +115,7 @@ const Hero = () => {
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: sm ? "center" : undefined,
+        backgroundPosition: sm ? "bottom" : undefined,
         minHeight: "75vh",
         width: "100%",
         opacity: "1",
