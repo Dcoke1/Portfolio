@@ -4,23 +4,12 @@ import { Link } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { LinkedIn } from "@mui/icons-material";
 
-const currentTab = () => {
-  let path = window.location.pathname;
-  if (path === "/" || "#/") return 0;
-  else if (path === "/projects" || "#/projects") return 1;
-};
 
 export const NavBar = (props: any) => {
-  /* Tab buttons functionality */
-  const [value, setValue] = React.useState(Number);
   const matches = useMediaQuery("(max-width:450px)");
 
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-
-  React.useEffect(() => {}, [value]);
+  React.useEffect(() => {}, []);
 
   return (
     <AppBar
@@ -33,8 +22,6 @@ export const NavBar = (props: any) => {
     >
       <Tabs
         component={"nav"}
-        value={null}
-        onChange={handleChange}
         textColor="inherit"
         color="rgb(255, 255, 255)"
         aria-label="home projects"

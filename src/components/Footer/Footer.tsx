@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Typography, Stack, useMediaQuery } from "@mui/material";
+import { Typography, Stack } from "@mui/material";
 
 export const Footer = () => {
 

@@ -14,6 +14,7 @@ import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import { section_ } from "./Assets/section_style";
 import rover from "./Assets/rover.png";
 import Zoom from 'react-reveal/Zoom';
+import BasicModal from "./Modal";
 const nasa_key = process.env.REACT_APP_NASA_API_KEY;
 
 type MarsButtonProps = {
@@ -158,6 +159,7 @@ const MarsList = ({ data, view }: MarsListProps) => {
             alt={"camera_images"}
             loading="lazy"
           />
+          <BasicModal image={item.img_src} />
         </ImageListItem>
       ))}
     </ImageList>
@@ -198,7 +200,7 @@ const MarsContainer = ({
         position: "relative",
         backgroundColor: "rgb(255, 255, 255, .1)",
       }}
-      elevation={1}
+      elevation={2}
     >
       <Stack
         sx={{

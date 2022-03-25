@@ -30,13 +30,13 @@ type ContainerProps = {
 };
 
 export const Home = () => {
-  const elements = [<About />, <Nasa />, <Skills />, <Mars />];
+  const components = [<About />, <Nasa />, <Skills />, <Mars />];
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <Hero />
-        <Container sections={elements} />
+        <Container sections={components} />
         <Footer />
       </ThemeProvider>
     </>
@@ -46,7 +46,7 @@ export const Home = () => {
 const Container = ({ sections }: ContainerProps) => {
   const [num, setNum] = React.useState(0);
   const med = useMediaQuery("(max-width:798px)");
-  const sm = useMediaQuery("(max-width:450px)");
+  const landscape = useMediaQuery('@media (orientation: landscape)');
 
   let section_colors = ["rgb(255, 255, 255, .99)", "rgb(47, 50, 54, .98)"];
 
@@ -83,7 +83,7 @@ const Container = ({ sections }: ContainerProps) => {
         border: "0px solid rgba(0, 0, 0, 0.125)",
         borderRadius: "1rem",
         overflow: "visible",
-        margin: "-64px 1.5rem 0 32px",
+        margin: landscape ? "-32px 1rem 0 1rem" : med ? "-64px 1rem 0 1rem"  : "-64px 2rem 0 2rem",
         boxShadow: "rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem",
       }}
       elevation={5}
@@ -99,6 +99,7 @@ const Container = ({ sections }: ContainerProps) => {
 };
 
 const Hero = () => {
+  const landscape = useMediaQuery('@media (orientation: landscape)');
   const med = useMediaQuery("(max-width:798px)");
   const sm = useMediaQuery("(max-width:450px)");
 
@@ -108,15 +109,16 @@ const Hero = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: landscape ? "row" : undefined,
         background: `linear-gradient(195deg, 
-                          rgba(66, 66, 74, 0.5), 
-                          rgba(25, 25, 25, 0.8)), 
+                          rgba(66, 66, 74, 0.6), 
+                          rgba(25, 25, 25, 0.4)), 
                           url(${image}) transparent`,
         backgroundSize: "cover",
-        backgroundAttachment: "fixed",
+        backgroundAttachment: sm ? "initial" : "fixed",
         backgroundRepeat: "no-repeat",
         backgroundPosition: sm ? "bottom" : undefined,
-        minHeight: "75vh",
+        minHeight: landscape ? "100vh" : "75vh",
         width: "100%",
         opacity: "1",
         color: "rgb(52, 71, 103)",
