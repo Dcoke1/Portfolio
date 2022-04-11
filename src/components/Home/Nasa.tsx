@@ -120,6 +120,8 @@ const DisplayContainer = ({
 const DisplayCard = ({ url, type, title, explanation }: DisplayCardProps) => {
   const med = useMediaQuery("(max-width:798px)");
   const sm = useMediaQuery("(max-width:450px)");
+  const [isFetching, setFetching] = React.useState(false);
+  console.log(isFetching)
   return (
     <Card
       component="article"
@@ -164,6 +166,7 @@ const DisplayCard = ({ url, type, title, explanation }: DisplayCardProps) => {
             image={url}
             alt={type}
             loading="lazy"
+            onLoad={() => setFetching(true)}
             style={{
               marginRight: "1rem",
               marginBottom: med ? "1rem" : undefined,

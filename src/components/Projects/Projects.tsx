@@ -1,6 +1,6 @@
 import space from "./space1.jpeg";
 import Zoom from "react-reveal/Zoom";
-import img1 from "../Projects/assets/image1.png"
+import img1 from "../Projects/assets/image1.png";
 import {
   Button,
   Card,
@@ -21,10 +21,13 @@ export const Projects = (props: any) => {
   const projects = [
     {
       img: img1,
-      title: "E-Commerce Website",
-      description: `Lizards are a widespread group of squamate reptiles, with over 6,000
-      species, ranging across all continents except Antarctica`,
-      url: "",
+      title: "Jeremiahs (E-Commerce Website)",
+      description: `MERN CRUD e-commerce web application utilizing 
+      Redux for state management, user authentication & authorization, 
+      JWT for security, and React-Router for route switch. Hosted on Heroku.
+      Shop designer mens wear @ Jeremiahs!
+      `,
+      url: "https://jeremiahs.herokuapp.com/",
     },
     {
       img: "https://slp-statics.astockcdn.net/static_assets/staging/21fall/free/browse-paid-asset-collections/card-2.jpg?width=580",
@@ -74,7 +77,7 @@ export const Projects = (props: any) => {
           alignItems: "center",
         }}
       >
-        {projects.map((item, key:number) => {
+        {projects.map((item, key: number) => {
           return (
             <ProjectCard
               image={item.img}
@@ -90,12 +93,7 @@ export const Projects = (props: any) => {
   );
 };
 
-const ProjectCard = ({
-  image,
-  title,
-  description,
-  link,
-}: projectsProps) => {
+const ProjectCard = ({ image, title, description, link }: projectsProps) => {
   return (
     <Zoom>
       <Card sx={{ margin: "6rem 1rem 1rem", maxWidth: 345 }}>
