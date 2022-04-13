@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.9067a906.css",
-    "main.js": "/portfolio/static/js/main.300b0505.js",
+    "main.js": "/portfolio/static/js/main.5d7ebc63.js",
+    "static/media/image1.png": "/portfolio/static/media/image1.c778dff1ad485692e574.png",
     "static/media/gothic-a1-all-400-normal.woff": "/portfolio/static/media/gothic-a1-all-400-normal.824566326f38aa42c017.woff",
     "static/media/mars.png": "/portfolio/static/media/mars.6eaa18ea30fca08ccbfd.png",
     "static/media/sass.png": "/portfolio/static/media/sass.07252826c206f9f22747.png",
     "static/media/rover.png": "/portfolio/static/media/rover.5f0db420fd796d60f146.png",
-    "static/media/image1.png": "/portfolio/static/media/image1.bec0e51165cb1ec3106a.png",
     "static/media/space1.jpeg": "/portfolio/static/media/space1.2be924bebe0888d40cb4.jpeg",
     "static/media/webpack.png": "/portfolio/static/media/webpack.840e99a6d181cc81e971.png",
     "static/media/spacexxxx.jpeg": "/portfolio/static/media/spacexxxx.b72d7884c891f2078205.jpeg",
@@ -121,10 +121,10 @@
     "static/media/gothic-a1-65-400-normal.woff2": "/portfolio/static/media/gothic-a1-65-400-normal.808868d933be6e597ae3.woff2",
     "index.html": "/portfolio/index.html",
     "main.9067a906.css.map": "/portfolio/static/css/main.9067a906.css.map",
-    "main.300b0505.js.map": "/portfolio/static/js/main.300b0505.js.map"
+    "main.5d7ebc63.js.map": "/portfolio/static/js/main.5d7ebc63.js.map"
   },
   "entrypoints": [
     "static/css/main.9067a906.css",
-    "static/js/main.300b0505.js"
+    "static/js/main.5d7ebc63.js"
   ]
 }
