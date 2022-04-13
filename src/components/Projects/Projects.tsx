@@ -1,6 +1,7 @@
 import space from "./space1.jpeg";
 import Zoom from "react-reveal/Zoom";
 import img1 from "../Projects/assets/image1.png";
+import img4 from "../Projects/assets/image4.png";
 import {
   Button,
   Card,
@@ -44,11 +45,10 @@ export const Projects = (props: any) => {
       url: "",
     },
     {
-      img: "https://cdn.dnaindia.com/sites/default/files/styles/full/public/2019/08/21/860915-freedom-financial-istock-082119.jpg",
-      title: "Coming Soon",
-      description: `Lizards are a widespread group of squamate reptiles, with over 6,000
-      species, ranging across all continents except Antarctica`,
-      url: "",
+      img: img4,
+      title: "Westgate Resorts Las Vegas Landing Page",
+      description: `Created with HTML, SCSS, Javascript, Java Server Pages`,
+      url: "https://www.westgateresorts.com/hotels/nevada/las-vegas/westgate-las-vegas-resort-casino/",
     },
   ];
 
