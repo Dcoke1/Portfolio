@@ -2,6 +2,7 @@ import space from "./space1.jpeg";
 import Zoom from "react-reveal/Zoom";
 import img1 from "../Projects/assets/image1.png";
 import img4 from "../Projects/assets/image4.png";
+import img2 from "../Projects/assets/image2.png";
 import {
   Button,
   Card,
@@ -31,11 +32,10 @@ export const Projects = (props: any) => {
       url: "https://jeremiahs.herokuapp.com/",
     },
     {
-      img: "https://slp-statics.astockcdn.net/static_assets/staging/21fall/free/browse-paid-asset-collections/card-2.jpg?width=580",
-      title: "Coming Soon",
-      description: `Lizards are a widespread group of squamate reptiles, with over 6,000
-      species, ranging across all continents except Antarctica`,
-      url: "",
+      img: img2,
+      title: "Realtor App",
+      description: `Created with React & Next.JS utilizing Rapid Api for property details. Search and Sort through properties For-Sale and For-Rent!`,
+      url: "https://realtor-app-khaki.vercel.app/",
     },
     {
       img: "https://images.ctfassets.net/hrltx12pl8hq/7JnR6tVVwDyUM8Cbci3GtJ/bf74366cff2ba271471725d0b0ef418c/shutterstock_376532611-og.jpg",
