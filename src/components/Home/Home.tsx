@@ -106,7 +106,7 @@ const Container = ({ sections }: ContainerProps) => {
 };
 
 const Hero = () => {
-  const landscape = useMediaQuery("@media (orientation: landscape)");
+  const landscape = useMediaQuery("@media (max-width:920px) and (orientation: landscape)");
   const med = useMediaQuery("(max-width:798px)");
   const sm = useMediaQuery("(max-width:450px)");
 
@@ -125,7 +125,7 @@ const Hero = () => {
         backgroundAttachment: sm ? "initial" : "fixed",
         backgroundRepeat: "no-repeat",
         backgroundPosition: sm ? "bottom" : undefined,
-        minHeight: landscape ? "100vh" : "75vh",
+        minHeight: "100vh",
         width: "100%",
         opacity: "1",
         color: "rgb(52, 71, 103)",
