@@ -46,7 +46,10 @@ export const Home = () => {
 const Container = ({ sections }: ContainerProps) => {
   const [num, setNum] = React.useState(0);
   const med = useMediaQuery("(max-width:798px)");
-  const landscape = useMediaQuery('@media (orientation: landscape)');
+
+  const landscape = useMediaQuery(
+    "@media (max-width:920px) and (orientation: landscape)"
+  );
 
   let section_colors = ["rgb(255, 255, 255, .99)", "rgb(47, 50, 54, .98)"];
 
@@ -83,7 +86,11 @@ const Container = ({ sections }: ContainerProps) => {
         border: "0px solid rgba(0, 0, 0, 0.125)",
         borderRadius: "1rem",
         overflow: "visible",
-        margin: landscape ? "-32px 1rem 0 1rem" : med ? "-64px 1rem 0 1rem"  : "-64px 2rem 0 2rem",
+        margin: landscape
+          ? "-32px 1rem 0 1rem"
+          : med
+          ? "-64px 1rem 0 1rem"
+          : "-64px 2rem 0 2rem",
         boxShadow: "rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem",
       }}
       elevation={5}
@@ -99,7 +106,7 @@ const Container = ({ sections }: ContainerProps) => {
 };
 
 const Hero = () => {
-  const landscape = useMediaQuery('@media (orientation: landscape)');
+  const landscape = useMediaQuery("@media (orientation: landscape)");
   const med = useMediaQuery("(max-width:798px)");
   const sm = useMediaQuery("(max-width:450px)");
 

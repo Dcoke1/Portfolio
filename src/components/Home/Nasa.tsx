@@ -1,6 +1,8 @@
 import * as React from "react";
 import BasicDatePicker from "./Calender";
 import { Card, CardMedia, Typography, Stack, useMediaQuery } from "@mui/material/";
+import loading from "./Assets/loading.gif"
+
 const nasa_key = process.env.REACT_APP_NASA_API_KEY;
 
 type DisplayCardProps = {
@@ -25,16 +27,19 @@ type DisplayContainerProps = {
 export const Nasa = () => {
   const [data, setData] = React.useState(Object);
   const [date, setDay] = React.useState(new Date().toLocaleDateString());
+  const [isFetching, setFetching ] = React.useState(false);
 
   React.useEffect(() => {
     let url = `https://api.nasa.gov/planetary/apod?api_key=${nasa_key}&date=${new Date(
       date
     ).toLocaleDateString("en-CA")}&`;
+    setFetching(true)
     fetch(url)
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.log(err));
-  }, [date]);
+      setFetching(false)
+  }, [date, isFetching]);
 
   return (
     <DisplayContainer
@@ -65,6 +70,7 @@ const DisplayContainer = ({
 }: DisplayContainerProps) => {
   const med = useMediaQuery("(max-width:798px)");
   const sm = useMediaQuery("(max-width:450px)");
+
   return (
     <section
       id="nasa_section"
@@ -120,8 +126,10 @@ const DisplayContainer = ({
 const DisplayCard = ({ url, type, title, explanation }: DisplayCardProps) => {
   const med = useMediaQuery("(max-width:798px)");
   const sm = useMediaQuery("(max-width:450px)");
-  const [isFetching, setFetching] = React.useState(false);
-  console.log(isFetching)
+  const [isFetching, setFetching] = React.useState(true);
+  
+  React.useEffect(() => {},[isFetching])
+
   return (
     <Card
       component="article"
@@ -150,6 +158,7 @@ const DisplayCard = ({ url, type, title, explanation }: DisplayCardProps) => {
             height="300"
             title="nasa_video"
             loading="lazy"
+            onLoad={() => setFetching(false)}
             style={{
               width: med ? "100%" : undefined,
               borderRadius: "2%",
@@ -157,16 +166,16 @@ const DisplayCard = ({ url, type, title, explanation }: DisplayCardProps) => {
               marginBottom: med ? "0.5rem" : undefined,
               float: "left",
             }}
-            src={url}
+            src={isFetching ? loading : url}
           ></iframe>
         ) : (
           <CardMedia
             component="img"
             className="nasa_img"
-            image={url}
+            image={isFetching ? loading : url}
             alt={type}
             loading="lazy"
-            onLoad={() => setFetching(true)}
+            onLoad={() => setFetching(false)}
             style={{
               marginRight: "1rem",
               marginBottom: med ? "1rem" : undefined,
@@ -202,6 +211,7 @@ const DisplayCalender = ({
   setCalender,
   currentTime,
 }: DisplayCalenderProps) => {
+
   return (
     <div
       style={{

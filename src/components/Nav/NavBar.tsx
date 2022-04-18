@@ -8,9 +8,6 @@ import { LinkedIn } from "@mui/icons-material";
 export const NavBar = (props: any) => {
   const matches = useMediaQuery("(max-width:450px)");
 
-
-  React.useEffect(() => {}, []);
-
   return (
     <AppBar
       position="absolute"
