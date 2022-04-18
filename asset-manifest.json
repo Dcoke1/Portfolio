@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.9067a906.css",
-    "main.js": "/portfolio/static/js/main.527ca323.js",
+    "main.js": "/portfolio/static/js/main.322f429b.js",
     "static/media/gothic-a1-all-400-normal.woff": "/portfolio/static/media/gothic-a1-all-400-normal.824566326f38aa42c017.woff",
     "static/media/image4.png": "/portfolio/static/media/image4.b19e80eedafc3af2a5db.png",
     "static/media/image1.png": "/portfolio/static/media/image1.7708b787dad11651fc55.png",
@@ -13,6 +13,7 @@
     "static/media/webpack.png": "/portfolio/static/media/webpack.840e99a6d181cc81e971.png",
     "static/media/spacexxxx.jpeg": "/portfolio/static/media/spacexxxx.b72d7884c891f2078205.jpeg",
     "static/media/gemunu-libre-all-400-normal.woff": "/portfolio/static/media/gemunu-libre-all-400-normal.c8629f78c94ef8516b17.woff",
+    "static/media/loading.gif": "/portfolio/static/media/loading.6281c6f4a9b357ce7536.gif",
     "static/media/goldman-all-400-normal.woff": "/portfolio/static/media/goldman-all-400-normal.9daf1f8afc50c766eac9.woff",
     "static/media/react.png": "/portfolio/static/media/react.1e5cc67591bf72667d33.png",
     "static/media/cooper-hewitt-all-400-normal.woff": "/portfolio/static/media/cooper-hewitt-all-400-normal.38c0661c0feb8a2a1f7d.woff",
@@ -123,10 +124,10 @@
     "static/media/gothic-a1-65-400-normal.woff2": "/portfolio/static/media/gothic-a1-65-400-normal.808868d933be6e597ae3.woff2",
     "index.html": "/portfolio/index.html",
     "main.9067a906.css.map": "/portfolio/static/css/main.9067a906.css.map",
-    "main.527ca323.js.map": "/portfolio/static/js/main.527ca323.js.map"
+    "main.322f429b.js.map": "/portfolio/static/js/main.322f429b.js.map"
   },
   "entrypoints": [
     "static/css/main.9067a906.css",
-    "static/js/main.527ca323.js"
+    "static/js/main.322f429b.js"
   ]
 }
