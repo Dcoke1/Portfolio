@@ -1,8 +1,10 @@
 import space from "./space1.jpeg";
 import Zoom from "react-reveal/Zoom";
 import img1 from "../Projects/assets/image1.png";
-import img4 from "../Projects/assets/image4.png";
 import img2 from "../Projects/assets/image2.png";
+import img3 from "../Projects/assets/image3.png";
+import img4 from "../Projects/assets/image4.png";
+
 import {
   Button,
   Card,
@@ -38,11 +40,10 @@ export const Projects = (props: any) => {
       url: "https://realtor-app-khaki.vercel.app/",
     },
     {
-      img: "https://images.ctfassets.net/hrltx12pl8hq/7JnR6tVVwDyUM8Cbci3GtJ/bf74366cff2ba271471725d0b0ef418c/shutterstock_376532611-og.jpg",
-      title: "Coming Soon",
-      description: `Lizards are a widespread group of squamate reptiles, with over 6,000
-      species, ranging across all continents except Antarctica`,
-      url: "",
+      img: img3,
+      title: "Crypto News App",
+      description: `Created with React/Redux, Rapid API, Ant Design & Chart.JS`,
+      url: "https://dcoke1.github.io/crypto-news/",
     },
     {
       img: img4,
