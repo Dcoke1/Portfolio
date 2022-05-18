@@ -4,6 +4,7 @@ import img1 from "../Projects/assets/image1.png";
 import img2 from "../Projects/assets/image2.png";
 import img3 from "../Projects/assets/image3.png";
 import img4 from "../Projects/assets/image4.png";
+import img5 from "../Projects/assets/image5.png";
 
 import {
   Button,
@@ -50,6 +51,12 @@ export const Projects = (props: any) => {
       title: "Westgate Resorts Las Vegas Landing Page",
       description: `Created with HTML, SCSS, Javascript, Java Server Pages`,
       url: "https://www.westgateresorts.com/hotels/nevada/las-vegas/westgate-las-vegas-resort-casino/",
+    },
+    {
+      img: img5,
+      title: "Sample Landing Page",
+      description: `Created with SASS and Vue.js`,
+      url: "https://sample-site-udundi.vercel.app/",
     },
   ];
 
