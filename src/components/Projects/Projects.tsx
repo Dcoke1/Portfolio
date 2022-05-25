@@ -26,7 +26,7 @@ export const Projects = (props: any) => {
   const projects = [
     {
       img: img1,
-      title: "Jeremiahs (E-Commerce Website)",
+      title: "Jeremiahs ( E-Commerce )",
       description: `MERN CRUD e-commerce web application utilizing 
       Redux for state management, user authentication & authorization, 
       JWT for security, and React-Router for route switch. Hosted on Heroku.
