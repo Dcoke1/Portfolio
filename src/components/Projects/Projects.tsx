@@ -5,6 +5,7 @@ import img2 from "../Projects/assets/image2.png";
 import img3 from "../Projects/assets/image3.png";
 import img4 from "../Projects/assets/image4.png";
 import img5 from "../Projects/assets/image5.png";
+import img6 from "../Projects/assets/image6.png";
 
 import {
   Button,
@@ -55,8 +56,14 @@ export const Projects = (props: any) => {
     {
       img: img5,
       title: "Sample Landing Page",
-      description: `Created with SASS and Vue.js`,
+      description: `Created with SASS and Vue.js for Udundi`,
       url: "https://sample-site-udundi.vercel.app/",
+    },
+    {
+      img: img6,
+      title: "Sample Landing Page 2",
+      description: `Created with Html & Css for PSCU`,
+      url: "https://dcoke1.github.io/pscu-landing-page/",
     },
   ];
 
