@@ -4,8 +4,8 @@ import img1 from "../Projects/assets/image1.png";
 import img2 from "../Projects/assets/image2.png";
 import img3 from "../Projects/assets/image3.png";
 import img4 from "../Projects/assets/image4.png";
-import img5 from "../Projects/assets/image5.png";
-import img6 from "../Projects/assets/image6.png";
+import img5 from "../Projects/assets/image5.jpg";
+import img6 from "../Projects/assets/image6.jpg";
 
 import {
   Button,
