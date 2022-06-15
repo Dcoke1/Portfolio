@@ -6,6 +6,7 @@ import img3 from "../Projects/assets/image3.png";
 import img4 from "../Projects/assets/image4.png";
 import img5 from "../Projects/assets/image5.jpg";
 import img6 from "../Projects/assets/image6.jpg";
+import img7 from "../Projects/assets/image7.jpg";
 
 import {
   Button,
@@ -64,6 +65,12 @@ export const Projects = (props: any) => {
       title: "Sample Landing Page 2",
       description: `Created with Html & Css for PSCU`,
       url: "https://dcoke1.github.io/pscu-landing-page/",
+    },
+    {
+      img: img7,
+      title: "Data Grid UI w Mock Data",
+      description: `Created with Typescript & Material UI for Rezilient Health. Sort patient data via a react reusable UI feature`,
+      url: "https://dcoke1.github.io/mui-data-grid/",
     },
   ];
 

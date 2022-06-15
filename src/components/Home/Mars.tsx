@@ -43,6 +43,8 @@ export const Mars = () => {
   const [view, setView] = React.useState("navcam");
   const [day, setDay] = React.useState(1);
 
+  console.log(data)
+
   const cams = [
     { fhaz: "Front Camera" },
     { rhaz: "Rear Camera" },
