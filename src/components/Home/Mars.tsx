@@ -13,7 +13,7 @@ import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import { section_ } from "./Assets/section_style";
 import rover from "./Assets/rover.png";
-import Zoom from 'react-reveal/Zoom';
+import Zoom from "react-reveal/Zoom";
 import BasicModal from "./Modal";
 const nasa_key = process.env.REACT_APP_NASA_API_KEY;
 
@@ -25,6 +25,7 @@ type MarsButtonProps = {
 type MarsListProps = {
   data: Array<unknown>;
   view: string;
+  value: boolean;
 };
 
 type MarsContainerProps = {
@@ -36,14 +37,14 @@ type MarsContainerProps = {
   increment: JSX.Element;
   btns: JSX.Element;
   list: JSX.Element;
+  btnToggle: any;
 };
 
 export const Mars = () => {
   const [data, setData] = React.useState(Array);
   const [view, setView] = React.useState("navcam");
   const [day, setDay] = React.useState(1);
-
-  console.log(data)
+  const [toggle, setToggle] = React.useState(false);
 
   const cams = [
     { fhaz: "Front Camera" },
@@ -77,6 +78,15 @@ export const Mars = () => {
     return yest;
   };
 
+  const btnClick = () => {
+    if (!toggle) {
+      setToggle(true);
+    } else {
+      setToggle(false);
+    }
+  };
+
+
   return (
     <MarsContainer
       title={"Mars Curiosity Rover Photos"}
@@ -104,7 +114,8 @@ export const Mars = () => {
         </IconButton>
       }
       btns={<MarsButton cameras={cams} setInput={setView} />}
-      list={<MarsList data={data} view={view} />}
+      list={<MarsList data={data} view={view} value={toggle} />}
+      btnToggle={() => btnClick()}
     />
   );
 };
@@ -141,12 +152,12 @@ const MarsButton = ({ setInput, cameras }: MarsButtonProps) => {
   );
 };
 
-const MarsList = ({ data, view }: MarsListProps) => {
+const MarsList = ({ data, view, value }: MarsListProps) => {
   return data.length > 0 ? (
     <ImageList
       sx={{
         width: "100%",
-        height: 300,
+        height: !value ? 300 : 650,
         gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr)) !important",
         gridColumnGap: "6px",
         gridRowGap: "6px",
@@ -188,6 +199,7 @@ const MarsContainer = ({
   increment,
   btns,
   list,
+  btnToggle,
 }: MarsContainerProps) => {
   const med = useMediaQuery("(max-width:798px)");
   const sm = useMediaQuery("(max-width:450px)");
@@ -221,23 +233,23 @@ const MarsContainer = ({
             alignItems: "center",
             fontSize: sm ? "2rem" : "2.5rem",
             marginTop: "5vh",
-            marginBottom: med ? "0" :  "0.5em",
+            marginBottom: med ? "0" : "0.5em",
             textAlign: "center",
           }}
         >
           {title}
           <img
-              style={{ width: "4rem", marginLeft: "5px" }}
-              src="https://api.nasa.gov/assets/footer/img/favicon-192.png"
-              alt="nasa_logo"
-            />
+            style={{ width: "4rem", marginLeft: "5px" }}
+            src="https://api.nasa.gov/assets/footer/img/favicon-192.png"
+            alt="nasa_logo"
+          />
         </Typography>
         <Zoom>
-        <img
-          style={{ maxWidth: "300px", display: med ? "none" : undefined }}
-          src={rover}
-          alt="mars_rover"
-        />
+          <img
+            style={{ maxWidth: "300px", display: med ? "none" : undefined }}
+            src={rover}
+            alt="mars_rover"
+          />
         </Zoom>
         <Stack
           style={{
@@ -273,6 +285,12 @@ const MarsContainer = ({
         {btns}
         {list}
       </Stack>
+      <Button
+        style={{ margin: "0 auto", display: "block" }}
+        onClick={btnToggle}
+      >
+        Expand
+      </Button>
     </Paper>
   );
 };

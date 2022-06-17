@@ -18,8 +18,8 @@ export const NavBar = (props: any) => {
       }}
     >
       <Tabs
+        value={0}
         component={"nav"}
-        textColor="inherit"
         color="rgb(255, 255, 255)"
         aria-label="home projects"
         TabIndicatorProps={{ style: { display: "none", background: "#D3935B" } }}
