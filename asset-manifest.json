@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.9067a906.css",
-    "main.js": "/portfolio/static/js/main.7847b2c9.js",
+    "main.css": "/portfolio/static/css/main.818eca92.css",
+    "main.js": "/portfolio/static/js/main.4dc8b4cb.js",
     "static/media/gothic-a1-all-400-normal.woff": "/portfolio/static/media/gothic-a1-all-400-normal.824566326f38aa42c017.woff",
     "static/media/image4.png": "/portfolio/static/media/image4.b19e80eedafc3af2a5db.png",
     "static/media/image1.png": "/portfolio/static/media/image1.7708b787dad11651fc55.png",
@@ -127,11 +127,11 @@
     "static/media/heebo-hebrew-400-normal.woff2": "/portfolio/static/media/heebo-hebrew-400-normal.f81f0032c9caf58f35b5.woff2",
     "static/media/gothic-a1-65-400-normal.woff2": "/portfolio/static/media/gothic-a1-65-400-normal.808868d933be6e597ae3.woff2",
     "index.html": "/portfolio/index.html",
-    "main.9067a906.css.map": "/portfolio/static/css/main.9067a906.css.map",
-    "main.7847b2c9.js.map": "/portfolio/static/js/main.7847b2c9.js.map"
+    "main.818eca92.css.map": "/portfolio/static/css/main.818eca92.css.map",
+    "main.4dc8b4cb.js.map": "/portfolio/static/js/main.4dc8b4cb.js.map"
   },
   "entrypoints": [
-    "static/css/main.9067a906.css",
-    "static/js/main.7847b2c9.js"
+    "static/css/main.818eca92.css",
+    "static/js/main.4dc8b4cb.js"
   ]
 }
